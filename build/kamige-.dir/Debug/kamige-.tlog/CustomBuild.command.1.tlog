@@ -1,0 +1,10 @@
+^C:\USERS\T-913\CPPP\KAMIGE-\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/t-913/CPPP/kamige- -BC:/Users/t-913/CPPP/kamige-/build --check-stamp-file C:/Users/t-913/CPPP/kamige-/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

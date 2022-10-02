@@ -1,0 +1,3 @@
+C:/Users/t-913/CPPP/kamige-/build/CMakeFiles/kamige-.dir
+C:/Users/t-913/CPPP/kamige-/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/t-913/CPPP/kamige-/build/CMakeFiles/ZERO_CHECK.dir
