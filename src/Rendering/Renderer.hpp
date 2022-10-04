@@ -10,7 +10,7 @@
 class Renderer
 {
 public:
-    Renderer() { Init(); };
+    Renderer() { Init(); } ;
     ~Renderer() { Destroy(); };
     void Draw(){DrawMap();SDL_RenderPresent(renderer);SDL_UpdateWindowSurface(window);};
 
