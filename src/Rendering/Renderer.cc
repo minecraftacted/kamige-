@@ -78,3 +78,6 @@ void Renderer::DrawMap()
         }
     }
 }
+void Renderer::TestDraw(){
+    
+}

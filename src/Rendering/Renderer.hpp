@@ -12,7 +12,7 @@ class Renderer
 public:
     Renderer() { Init(); };
     ~Renderer() { Destroy(); };
-    void Draw(){DrawMap();SDL_RenderPresent(renderer);};
+    void Draw(){DrawMap();SDL_RenderPresent(renderer);SDL_UpdateWindowSurface(window);};
 
 private:
     SDL_Window* window=nullptr;
@@ -23,5 +23,6 @@ private:
     void Init();
     void Destroy();
     void DrawMap();
+    void TestDraw();
     SDL_Texture* LoadImage(char*,bool);
 };
