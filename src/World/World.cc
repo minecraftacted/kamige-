@@ -43,7 +43,6 @@ void World::DisplayWorld()
             if(worldData.at(x).at(y).type==BlockData::BlockType::grass)
             {
                 std::cout<<"g";
-                auto a=10;
             }
         }
         std::cout<<"\n"<<std::endl;

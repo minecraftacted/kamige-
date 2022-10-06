@@ -37,6 +37,7 @@ void Renderer::Init()
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     std::cout << "Initted SDL" << std::endl;
 }
+
 void Renderer::Destroy()
 {
     SDL_DestroyRenderer(renderer);
@@ -60,15 +61,19 @@ SDL_Texture *Renderer::LoadImage(char *fileName, bool transparentBackground)
         }
     }
     SDL_Texture *imageTexture = SDL_CreateTextureFromSurface(renderer, image);
+    if(imageTexture==NULL){
+        std::cout<<"Couldn't create texture"<< std::endl;
+    }
     return imageTexture;
 }
 void Renderer::DrawMap()
 {
-    for (int x = 0; x < World::GetInstance()->GetXSize(); x++)
+    for (int y = 0; y < World::GetInstance()->GetYSize(); y++)
     {
-        for (int y = 0; y < World::GetInstance()->GetYSize(); y++)
+        for (int x = 0; x < World::GetInstance()->GetXSize(); x++)
         {
             SDL_Texture *texture = LoadImage(World::GetInstance()->GetBlockData(x, y)->GetTexturePath(), World::GetInstance()->GetBlockData(x, y)->isTransparent());
+            std::cout<<World::GetInstance()->GetBlockData(x, y)->GetTexturePath()<<std::endl;
             int *imageWidth = 0, *imageHeight = 0;
             SDL_QueryTexture(texture, NULL, NULL, imageWidth, imageHeight);
             int widthMagnification = (BlocksPixelSize / (*imageWidth)), heightMagnification = (BlocksPixelSize / (*imageWidth));
@@ -79,5 +84,6 @@ void Renderer::DrawMap()
     }
 }
 void Renderer::TestDraw(){
-    
+    SDL_SetRenderDrawColor(renderer,255,255,0,255);
+    SDL_RenderFillRect(renderer, NULL);
 }
