@@ -46,6 +46,7 @@ void Renderer::Destroy()
     SDL_Quit();
     std::cout << "destroy sdl" << std::endl;
 }
+
 SDL_Texture *Renderer::LoadImage(char *filePath, bool transparentBackground)
 {
     SDL_Surface *image = IMG_Load(filePath);
@@ -69,28 +70,30 @@ SDL_Texture *Renderer::LoadImage(char *filePath, bool transparentBackground)
     SDL_FreeSurface(image);
     return imageTexture;
 }
-void Renderer::DrawMap()
+
+void Renderer::DrawMap()//TODO:Load the same texture only once
 {
     for (int y = 0; y < World::GetInstance()->GetYSize(); y++)
     {
         for (int x = 0; x < World::GetInstance()->GetXSize(); x++)
         {
-#define blockData World::GetInstance()->GetBlockData(x, y)
-            if(blockData->texturePath==nullptr){
-                std::cout<<"NULL"<< std::endl;
-                continue;
-            }
-            texture=LoadImage(blockData->texturePath,blockData->isTransparent());
-            std::cout<<blockData->texturePath<<std::endl;
-#undef blockData
+            texture=LoadImage
+            (
+                World::GetInstance()->GetBlockData(x, y)->texturePath,
+                World::GetInstance()->GetBlockData(x, y)->isTransparent()
+            );
+
             int textureWidth,textureHeight;
             SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
+
             SDL_Rect textureRect{0,0,textureWidth,textureHeight};
             SDL_Rect drawRect{x*GRID_SIZE,y*GRID_SIZE,GRID_SIZE,GRID_SIZE};
+
             SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
         }
     }
 }
+
 void Renderer::TestDraw()
 {
     SDL_SetRenderDrawColor(renderer,255,255,0,255);
