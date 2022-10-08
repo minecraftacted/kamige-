@@ -10,9 +10,9 @@ void World::GenerateWorld()
 {
     for(size_t x=0;x<GetXSize();x++)//0~50
     {
-        for(size_t y=GetYSize()/4 ; y<GetYSize() ; y++)//50~200
+        for(size_t y=GetYSize()/2 ; y<GetYSize() ; y++)//50~200
         {
-            worldData.at(x).at(y)=BlockData(BlockData::BlockType::grass);
+            worldData.at(x).at(y)=BlockData(BlockData::BlockType::glass);
         }
     }
 }
@@ -29,23 +29,5 @@ size_t World::GetYSize()
 BlockData* World::GetBlockData(int x,int y)
 {
     return &(worldData.at(x).at(y));
-}
-void World::DisplayWorld()
-{
-    for(int y=0;y<GetYSize();y++)
-    {
-        for(int x=0;x<GetXSize();x++)
-        {
-            if(worldData.at(x).at(y).type==BlockData::BlockType::air)
-            {
-                std::cout<<"a";
-            }
-            if(worldData.at(x).at(y).type==BlockData::BlockType::grass)
-            {
-                std::cout<<"g";
-            }
-        }
-        std::cout<<"\n"<<std::endl;
-    }
 }
 

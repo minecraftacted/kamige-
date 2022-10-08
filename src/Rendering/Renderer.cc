@@ -17,10 +17,10 @@ void Renderer::Init()
         std::exit(2);
     }
 
-    window = SDL_CreateWindow(windowTitle,
+    window = SDL_CreateWindow(WINDOW_TITLE,
                                 SDL_WINDOWPOS_UNDEFINED,
                                 SDL_WINDOWPOS_UNDEFINED,
-                                screenWidth, screenHeight,
+                                SCREEN_WIDTH, SCREEN_HEIGHT,
                                 0);
     if (window == NULL)
     {
@@ -34,7 +34,7 @@ void Renderer::Init()
         std::cout << "Couldn't create renderer" << std::endl;
         std::exit(4);
     }
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 100, 200, 255);
     std::cout << "Initted SDL" << std::endl;
 }
 
@@ -46,24 +46,27 @@ void Renderer::Destroy()
     SDL_Quit();
     std::cout << "destroy sdl" << std::endl;
 }
-SDL_Texture *Renderer::LoadImage(char *fileName, bool transparentBackground)
+SDL_Texture *Renderer::LoadImage(char *filePath, bool transparentBackground)
 {
-    SDL_Surface *image = IMG_Load(fileName);
-    if (!image)
+    SDL_Surface *image = IMG_Load(filePath);
+    if (image==NULL)
     {
         std::cout<<"Couldn't load image"<< std::endl;
         std::exit(10);
     }
     if (transparentBackground)
     {
-        if(SDL_SetColorKey(image, SDL_TRUE, SDL_MapRGB(image->format, 255, 0, 255))<0){
+        if(SDL_SetColorKey(image, SDL_TRUE, SDL_MapRGB(image->format, 64, 128, 255))<0)
+        {
             std::cout<<"Couldn't set color key"<< std::endl;
         }
     }
     SDL_Texture *imageTexture = SDL_CreateTextureFromSurface(renderer, image);
-    if(imageTexture==NULL){
+    if(imageTexture==NULL)
+    {
         std::cout<<"Couldn't create texture"<< std::endl;
     }
+    SDL_FreeSurface(image);
     return imageTexture;
 }
 void Renderer::DrawMap()
@@ -72,18 +75,24 @@ void Renderer::DrawMap()
     {
         for (int x = 0; x < World::GetInstance()->GetXSize(); x++)
         {
-            SDL_Texture *texture = LoadImage(World::GetInstance()->GetBlockData(x, y)->GetTexturePath(), World::GetInstance()->GetBlockData(x, y)->isTransparent());
-            std::cout<<World::GetInstance()->GetBlockData(x, y)->GetTexturePath()<<std::endl;
-            int *imageWidth = 0, *imageHeight = 0;
-            SDL_QueryTexture(texture, NULL, NULL, imageWidth, imageHeight);
-            int widthMagnification = (BlocksPixelSize / (*imageWidth)), heightMagnification = (BlocksPixelSize / (*imageWidth));
-            SDL_Rect imageRect{0, 0, *imageWidth, *imageHeight};
-            SDL_Rect drawRect{x * BlocksPixelSize, y * BlocksPixelSize, (*imageWidth) * widthMagnification, (*imageHeight) * heightMagnification};
-            SDL_RenderCopy(renderer, texture, &imageRect, &drawRect);
+#define blockData World::GetInstance()->GetBlockData(x, y)
+            if(blockData->texturePath==nullptr){
+                std::cout<<"NULL"<< std::endl;
+                continue;
+            }
+            texture=LoadImage(blockData->texturePath,blockData->isTransparent());
+            std::cout<<blockData->texturePath<<std::endl;
+#undef blockData
+            int textureWidth,textureHeight;
+            SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
+            SDL_Rect textureRect{0,0,textureWidth,textureHeight};
+            SDL_Rect drawRect{x*GRID_SIZE,y*GRID_SIZE,GRID_SIZE,GRID_SIZE};
+            SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
         }
     }
 }
-void Renderer::TestDraw(){
+void Renderer::TestDraw()
+{
     SDL_SetRenderDrawColor(renderer,255,255,0,255);
     SDL_RenderFillRect(renderer, NULL);
 }

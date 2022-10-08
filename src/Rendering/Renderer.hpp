@@ -12,14 +12,15 @@ class Renderer
 public:
     Renderer() { Init(); }
     ~Renderer() { Destroy(); }
-    void Draw(){DrawMap();SDL_RenderPresent(renderer);}
+    void Draw(){SDL_RenderClear(renderer);DrawMap();SDL_RenderPresent(renderer);SDL_Delay(5000);}
 
 private:
     SDL_Window* window=nullptr;
     SDL_Renderer* renderer=nullptr;
-    const char windowTitle[8]="Kamige-";
-    const int BlocksPixelSize=32;
-    const int screenWidth=640,screenHeight=480;
+    SDL_Texture* texture=nullptr;
+    const char WINDOW_TITLE[8]="Kamige-";
+    const int GRID_SIZE=16;
+    const int SCREEN_WIDTH=640,SCREEN_HEIGHT=480;
     void Init();
     void Destroy();
     void DrawMap();

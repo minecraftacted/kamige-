@@ -2,8 +2,5 @@
 
 void Game::GameLoop()
 {
-    while (true)
-    {
-        renderer.Draw();
-    }
+    renderer.Draw();
 }

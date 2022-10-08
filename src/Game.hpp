@@ -5,7 +5,7 @@ class Game
 {
 public:
     Game():
-        world(50,200)
+        world(25,50)
     {
         this->GameLoop();
     }

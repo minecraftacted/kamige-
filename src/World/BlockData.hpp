@@ -29,10 +29,10 @@ struct BlockData{
         }
         return BlockClass::solid;
     }
-    static char* TypeToTexturePath(BlockType type){
+    static char* TypeToTexturePath(BlockType type){/*if air than return nullptr*/
         switch(type){
             case BlockType::air:
-                return "Images/unknown.png";
+                return nullptr;
 
             case BlockType::grass:
                 return "Images/grass.png";
@@ -71,12 +71,12 @@ struct BlockData{
         return texturePath;
     }
     bool isTransparent(){
-        if(blockClass==BlockClass::semiTransparent){
+        if(blockClass==BlockClass::semiTransparent||blockClass==BlockClass::transparent){
             return true;
         }
         return false;
     }
-    BlockData(BlockData::BlockType type=BlockType::air,char* texturePath=nullptr):
+    BlockData(BlockData::BlockType type=BlockType::air , char* texturePath=nullptr):
         type(type),blockClass(TypeToClass(type))
             {SetTexturePath(texturePath);}
 };

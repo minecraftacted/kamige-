@@ -12,13 +12,11 @@ public:
             assert(instancePtr == nullptr);
             instancePtr=this;
             GenerateWorld();
-            DisplayWorld();
         }
     ~World();
     size_t GetXSize();
     size_t GetYSize();
     BlockData* GetBlockData(int x,int y);
-    void DisplayWorld();
     static World* GetInstance(){return instancePtr;};
 
 private:
