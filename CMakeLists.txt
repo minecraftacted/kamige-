@@ -14,9 +14,9 @@ target_link_directories(kamige- PRIVATE third_party/SDL2-2.24.0/lib/x64 PRIVATE 
 target_link_libraries(kamige- SDL2 SDL2main SDL2_image)
 
 
-if(MSVC)#もしvc++だったら
-    message("This compiller is MSVC.")#メッセージ表示
-    target_compile_options(kamige- PRIVATE /W4 /WX)#コンパイルオプション設定(/W4=警告を最大限表示 /WX=警告をエラーとして扱う)
-else()#VC++じゃなかったら(GCCとか)
-    message(FATAL_ERROR "Compilers other than MSVC are not supported.")#FATAL_ERRORで強制終了
+if(MSVC)
+    message("This compiller is MSVC.")
+    target_compile_options(kamige- PRIVATE /W4 /WX)
+else()
+    message(FATAL_ERROR "Compilers other than MSVC are not supported.")
 endif()
