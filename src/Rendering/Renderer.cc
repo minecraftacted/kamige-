@@ -47,8 +47,14 @@ void Renderer::Destroy()
     std::cout << "destroy sdl" << std::endl;
 }
 
-SDL_Texture *Renderer::LoadImage(char *filePath, bool transparentBackground)
+SDL_Texture *Renderer::LoadTexture(char *filePath, bool transparentBackground)
 {
+    auto iterator=textureCaches.find(filePath);
+    if(iterator != textureCaches.end()){
+        std::cout<<"already cached"<<std::endl;
+        return iterator->second;
+    }
+
     SDL_Surface *image = IMG_Load(filePath);
     if (image==NULL)
     {
@@ -68,21 +74,24 @@ SDL_Texture *Renderer::LoadImage(char *filePath, bool transparentBackground)
         std::cout<<"Couldn't create texture"<< std::endl;
     }
     SDL_FreeSurface(image);
+    textureCaches.emplace(filePath, imageTexture);
+    std::cout<<"Created texture"<< std::endl;
     return imageTexture;
 }
-
 void Renderer::DrawMap()//TODO:Load the same texture only once
 {
     for (int y = 0; y < World::GetInstance()->GetYSize(); y++)
     {
         for (int x = 0; x < World::GetInstance()->GetXSize(); x++)
         {
-            texture=LoadImage
+            if(World::GetInstance()->GetBlockData(x, y)->texturePath==nullptr){
+                continue;
+            }
+            texture=LoadTexture
             (
                 World::GetInstance()->GetBlockData(x, y)->texturePath,
                 World::GetInstance()->GetBlockData(x, y)->isTransparent()
             );
-
             int textureWidth,textureHeight;
             SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
 

@@ -8,11 +8,11 @@ World::~World()
 }
 void World::GenerateWorld()
 {
-    for(size_t x=0;x<GetXSize();x++)//0~50
+    for(size_t x=0;x<GetXSize();x++)
     {
-        for(size_t y=GetYSize()/2 ; y<GetYSize() ; y++)//50~200
+        for(size_t y=GetYSize()/2 ; y<GetYSize() ; y++)
         {
-            worldData.at(x).at(y)=BlockData(BlockData::BlockType::glass);
+            worldData.at(x).at(y)=BlockData(BlockData::BlockType::grass);
         }
     }
 }

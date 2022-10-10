@@ -7,6 +7,8 @@
 
 #include <vector>
 #include <iostream>
+#include <map>
+typedef char* texture_path;
 class Renderer
 {
 public:
@@ -15,6 +17,7 @@ public:
     void Draw(){SDL_RenderClear(renderer);DrawMap();SDL_RenderPresent(renderer);SDL_Delay(5000);}
 
 private:
+    std::map<texture_path,SDL_Texture*> textureCaches;
     SDL_Window* window=nullptr;
     SDL_Renderer* renderer=nullptr;
     SDL_Texture* texture=nullptr;
@@ -25,5 +28,5 @@ private:
     void Destroy();
     void DrawMap();
     void TestDraw();
-    SDL_Texture* LoadImage(char*,bool);
+    SDL_Texture* LoadTexture(char*,bool);
 };
