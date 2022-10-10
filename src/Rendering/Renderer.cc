@@ -51,7 +51,6 @@ SDL_Texture *Renderer::LoadTexture(char *filePath, bool transparentBackground)
 {
     auto iterator=textureCaches.find(filePath);
     if(iterator != textureCaches.end()){
-        std::cout<<"already cached"<<std::endl;
         return iterator->second;
     }
 
@@ -75,10 +74,9 @@ SDL_Texture *Renderer::LoadTexture(char *filePath, bool transparentBackground)
     }
     SDL_FreeSurface(image);
     textureCaches.emplace(filePath, imageTexture);
-    std::cout<<"Created texture"<< std::endl;
     return imageTexture;
 }
-void Renderer::DrawMap()//TODO:Load the same texture only once
+void Renderer::DrawMap()
 {
     for (int y = 0; y < World::GetInstance()->GetYSize(); y++)
     {
