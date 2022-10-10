@@ -20,7 +20,6 @@ private:
     std::map<texture_path,SDL_Texture*> textureCaches;
     SDL_Window* window=nullptr;
     SDL_Renderer* renderer=nullptr;
-    SDL_Texture* texture=nullptr;
     const char WINDOW_TITLE[8]="Kamige-";
     const int GRID_SIZE=16;
     const int SCREEN_WIDTH=640,SCREEN_HEIGHT=480;

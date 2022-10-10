@@ -82,6 +82,7 @@ void Renderer::DrawMap()
     {
         for (int x = 0; x < World::GetInstance()->GetXSize(); x++)
         {
+            SDL_Texture *texture=nullptr;
             if(World::GetInstance()->GetBlockData(x, y)->texturePath==nullptr){
                 continue;
             }
