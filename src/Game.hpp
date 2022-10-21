@@ -1,11 +1,11 @@
 #pragma once
-#include "Rendering/Renderer.hpp"
 #include "World/World.hpp"
+#include "Rendering/Renderer.hpp"
 class Game
 {
 public:
     Game():
-        world(25,50)
+        world(25)
     {
         this->GameLoop();
     }

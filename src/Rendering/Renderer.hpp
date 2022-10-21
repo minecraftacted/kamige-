@@ -1,13 +1,14 @@
 #pragma once
-#define SDL_MAIN_HANDLED
-#include "SDL.h"
-#include "SDL_image.h"
-
-#include "../World/World.hpp"
 
 #include <vector>
 #include <iostream>
 #include <map>
+#include <stdexcept>
+
+#define SDL_MAIN_HANDLED
+#include "SDL.h"
+#include "SDL_image.h"
+
 typedef char* texture_path;
 class Renderer
 {
@@ -26,6 +27,5 @@ private:
     void Init();
     void Destroy();
     void DrawMap();
-    void TestDraw();
-    SDL_Texture* LoadTexture(char*,bool);
+    SDL_Texture* LoadTexture(char*,bool) noexcept(false);
 };
