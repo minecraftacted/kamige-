@@ -39,10 +39,10 @@ std::tuple<int,int> World::CvtCoordToThoseInChunks(int32_t x, int32_t y)const no
 
 const Chunk* World::GetChunk(int chunkNum)const noexcept
 {
-    return &(worldData.at(chunkNum));
+    return &(worldData.at(chunkNum));//戻り値はconst
 }
 
 void World::ChunkGenerate(int32_t chunkNum) noexcept
 {
-    generator.GenerateChunk(GetChunk(chunkNum));
+    generator.GenerateChunk(GetChunk(chunkNum));//constを渡してる
 }

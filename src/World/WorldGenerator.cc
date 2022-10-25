@@ -4,7 +4,7 @@ WorldGenerator::WorldGenerator()
     
 }
 //TODO:random generation
-void WorldGenerator::GenerateChunk(Chunk *chunk)
+void WorldGenerator::GenerateChunk(Chunk *chunk)//const Chunk型で利用されるがこの関数の引数はconstに出来ない
 {
     for(int x=0;x<chunk->HORIZONTAL_SIZE;x++)
     {
