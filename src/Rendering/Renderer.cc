@@ -97,16 +97,16 @@ void Renderer::DrawMap()
                 for(int x = 0 ;x<world->GetChunk(chunkNum)->HORIZONTAL_SIZE; x++)
                 {
                     SDL_Texture*     texture = nullptr;
-                    const BlockData* block   = world->GetChunk(chunkNum)->GetBlockData(x,y);
+                    const BlockData  block   = world->GetChunk(chunkNum)->GetBlockData(x,y);
 
 
-                    if(block->GetTexturePath()==nullptr)
+                    if(block.GetTexturePath()==nullptr)
                     {
                         continue;
                     }
 
 
-                    texture = LoadTexture(block->GetTexturePath() , block->isTransparent());
+                    texture = LoadTexture(block.GetTexturePath() , block.isTransparent());
 
                     int32_t textureWidth,textureHeight;
                     SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);

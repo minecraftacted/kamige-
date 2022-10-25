@@ -10,17 +10,12 @@ Chunk::Chunk()
     }
 }
 
-const BlockData* Chunk::GetBlockData(int32_t x,int32_t y) const noexcept
+const BlockData& Chunk::GetBlockData(int32_t x,int32_t y) const noexcept
 {
-    return &data[x][y];
+    return data[x][y];
 }
 
 void Chunk::PlaceBlock(int32_t x,  int32_t y,  BlockData::BlockType type,   char* texturePath) noexcept
 {
     data[x][y].BlockChange(type, texturePath);
-}
-
-void Chunk::PrintData() const noexcept
-{
-    std::cout<<"Chunk::PrintData"<<std::endl;
 }
