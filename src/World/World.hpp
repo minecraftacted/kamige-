@@ -22,7 +22,7 @@ public:
     size_t WhichChunkTheCoordAreIn(int32_t xCoordinate)const noexcept;
     std::tuple<int,int> CvtCoordToThoseInChunks(int32_t x,int32_t y)const noexcept;
 
-    const Chunk* GetChunk(int chunkNum)const noexcept;
+    Chunk& GetChunk(int chunkNum)const noexcept;
 
     static World* GetInstance()
         {return instancePtr;}
@@ -32,5 +32,5 @@ private:
     static World* instancePtr;
     std::vector<Chunk> worldData;
     WorldGenerator generator;
-    void ChunkGenerate(int32_t chunkNum) noexcept;
+    void GenerateChunk(int32_t chunkNum) noexcept;
 };

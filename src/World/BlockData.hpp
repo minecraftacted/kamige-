@@ -38,8 +38,9 @@ struct BlockData
             }
             return BlockClass::solid;
         }
+        /*if air than return nullptr*/
         static char* TypeToTexturePath(BlockType type)
-        {/*if air than return nullptr*/
+        {
             switch(type)
             {
                 case BlockType::air:

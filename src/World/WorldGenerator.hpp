@@ -4,6 +4,6 @@ class WorldGenerator
 {
     public:
         WorldGenerator();
-        void GenerateChunk(Chunk* chunk);
+        void GenerateChunk(Chunk& chunk);
     private:
 };
