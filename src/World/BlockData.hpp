@@ -1,12 +1,15 @@
 #pragma once
-struct BlockData{
-    enum class BlockClass{
+struct BlockData
+{
+    enum class BlockClass
+    {
         air,
         solid,
         semiTransparent,
         transparent
     };
-    enum class BlockType{
+    enum class BlockType
+    {
         air,
         grass,
         dirt,
@@ -16,67 +19,86 @@ struct BlockData{
         leaves,
         glass
     };
-    BlockClass blockClass;
-    BlockType type;
-    char* texturePath;
-    static BlockClass TypeToClass(BlockType type){
-        if (type==BlockType::air){
-            return BlockClass::air;
-        }else if (type==BlockType::water){
-            return BlockClass::semiTransparent;
-        }else if (type==BlockType::leaves||type==BlockType::glass){
-            return BlockClass::transparent;
+    private:
+        BlockClass blockClass;
+        BlockType type;
+        char* texturePath;
+    public:
+        static BlockClass TypeToClass(BlockType type)
+        {
+            if (type==BlockType::air)
+            {
+                return BlockClass::air;
+            }else if (type==BlockType::water)
+            {
+                return BlockClass::semiTransparent;
+            }else if (type==BlockType::leaves||type==BlockType::glass)
+            {
+                return BlockClass::transparent;
+            }
+            return BlockClass::solid;
         }
-        return BlockClass::solid;
-    }
-    static char* TypeToTexturePath(BlockType type){/*if air than return nullptr*/
-        switch(type){
-            case BlockType::air:
-                return nullptr;
+        /*if air than return nullptr*/
+        static char* TypeToTexturePath(BlockType type)
+        {
+            switch(type)
+            {
+                case BlockType::air:
+                    return nullptr;
 
-            case BlockType::grass:
-                return "Images/grass.png";
+                case BlockType::grass:
+                    return "Images/grass.png";
 
-            case BlockType::dirt:
-                return "Images/dirt.png";
+                case BlockType::dirt:
+                    return "Images/dirt.png";
 
-            case BlockType::planks:
-                return "Images/planks.png";
+                case BlockType::planks:
+                    return "Images/planks.png";
 
-            case BlockType::water:
-                return "Images/water.png";
+                case BlockType::water:
+                    return "Images/water.png";
 
-            case BlockType::wood:
-                return "Images/wood.png";
+                case BlockType::wood:
+                    return "Images/wood.png";
 
-            case BlockType::leaves:
-                return "Images/leaves.png";
+                case BlockType::leaves:
+                    return "Images/leaves.png";
 
-            case BlockType::glass:
-                return "Images/glass.png";
+                case BlockType::glass:
+                    return "Images/glass.png";
 
-            default:
-                return "Images/unknown.png";
+                default:
+                    return "Images/unknown.png";
+            }
         }
-    }
-    void SetTexturePath(char* path){
-        if(path==nullptr){
-            texturePath=TypeToTexturePath(type);
-            return;
+        void SetTexturePath(char* path) noexcept
+        {
+            if(path==nullptr)
+            {
+                texturePath=TypeToTexturePath(type);
+                return;
+            }
+            texturePath=path;
         }
-        texturePath=path;
-    }
-    char* GetTexturePath()
-    {
-        return texturePath;
-    }
-    bool isTransparent(){
-        if(blockClass==BlockClass::semiTransparent||blockClass==BlockClass::transparent){
-            return true;
+        char* GetTexturePath() const noexcept
+        {
+            return texturePath;
         }
-        return false;
-    }
-    BlockData(BlockData::BlockType type=BlockType::air , char* texturePath=nullptr):
-        type(type),blockClass(TypeToClass(type))
-            {SetTexturePath(texturePath);}
+        bool isTransparent() const noexcept
+        {
+            if(blockClass==BlockClass::semiTransparent||blockClass==BlockClass::transparent)
+            {
+                return true;
+            }
+            return false;
+        }
+        void BlockChange(BlockType newType,char* newPath=nullptr) noexcept
+        {
+            type=newType;
+            blockClass=TypeToClass(newType);
+            SetTexturePath(newPath);
+        }
+        BlockData(BlockData::BlockType type=BlockType::air , char* texturePath=nullptr) noexcept:
+            type(type),blockClass(TypeToClass(type))
+                {SetTexturePath(texturePath);}
 };
