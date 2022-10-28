@@ -1,4 +1,4 @@
-#include "Renderer.hpp"
+﻿#include "Renderer.hpp"
 #include "../World/World.hpp"
 
 void Renderer::Init()
@@ -35,7 +35,7 @@ void Renderer::Init()
         std::cout << "Couldn't create renderer" << std::endl;
         std::exit(4);
     }
-    SDL_SetRenderDrawColor(renderer, 0, 100, 200, 255);
+    SDL_SetRenderDrawColor(renderer, 50, 150, 250, 255);
     std::cout << "Initted SDL" << std::endl;
 }
 
@@ -92,27 +92,25 @@ void Renderer::DrawMap()
     World* world = World::GetInstance();
     for (int chunkNum = 0; chunkNum < world->NumOfChunks(); chunkNum++)
         {
-            for(int y = 0 ;y<world->GetChunk(chunkNum)->VERTICAL_SIZE ; y++)
+            for(int y = 0 ;y<world->GetChunk(chunkNum).VERTICAL_SIZE ; y++)
             {
-                for(int x = 0 ;x<world->GetChunk(chunkNum)->HORIZONTAL_SIZE; x++)
+                for(int x = 0 ;x<world->GetChunk(chunkNum).HORIZONTAL_SIZE; x++)
                 {
                     SDL_Texture*     texture = nullptr;
-                    const BlockData  block   = world->GetChunk(chunkNum)->GetBlockData(x,y);
+                    const BlockData  block   = world->GetChunk(chunkNum).GetBlockData(x,y);
 
 
                     if(block.GetTexturePath()==nullptr)
                     {
                         continue;
                     }
-
-
                     texture = LoadTexture(block.GetTexturePath() , block.isTransparent());
 
                     int32_t textureWidth,textureHeight;
                     SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
-
+                    int a=chunkNum*(Chunk::HORIZONTAL_SIZE);
                     SDL_Rect textureRect{0,0,textureWidth,textureHeight};
-                    SDL_Rect drawRect{x*GRID_SIZE,y*GRID_SIZE,GRID_SIZE,GRID_SIZE};
+                    SDL_Rect drawRect{(x+a)*GRID_SIZE,y*GRID_SIZE,GRID_SIZE,GRID_SIZE};
 
                     SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
                 }

@@ -1,10 +1,14 @@
-#include "World.hpp"
+﻿#include "World.hpp"
 World* World::instancePtr=nullptr;
 World::World(int initalXSize):
     worldData(initalXSize,Chunk())
 {
     assert(instancePtr == nullptr);
     instancePtr=this;
+    for(int i=0;i<NumOfChunks();i++)
+    {
+        GenerateChunk(i);
+    }
 }
 World::~World()
 {
@@ -39,9 +43,9 @@ std::tuple<int,int> World::CvtCoordToThoseInChunks(int32_t x, int32_t y)const no
 
 Chunk& World::GetChunk(int chunkNum)const noexcept
 {
-    return worldData.at(chunkNum);
+    return const_cast<Chunk&> (worldData[chunkNum]);
 }
-uint64_t a=810'1919'4545'364364;
+
 void World::GenerateChunk(int32_t chunkNum) noexcept
 {
     generator.GenerateChunk(GetChunk(chunkNum));//constを渡してる
