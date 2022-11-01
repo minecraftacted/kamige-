@@ -48,5 +48,5 @@ Chunk& World::GetChunk(int chunkNum)const noexcept
 
 void World::GenerateChunk(int32_t chunkNum) noexcept
 {
-    generator.GenerateChunk(GetChunk(chunkNum));//constを渡してる
+    generator.GenerateChunk(GetChunk(chunkNum));
 }

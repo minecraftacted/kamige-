@@ -22,8 +22,8 @@ private:
     SDL_Window* window=nullptr;
     SDL_Renderer* renderer=nullptr;
     const char WINDOW_TITLE[8]="Kamige-";
-    const int GRID_SIZE=10;
-    const int SCREEN_WIDTH=1280,SCREEN_HEIGHT=960;
+    const int GRID_SIZE=64;
+    const int SCREEN_WIDTH=1920,SCREEN_HEIGHT=1080;
     void Init();
     void Destroy();
     void DrawMap();

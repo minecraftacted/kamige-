@@ -108,9 +108,9 @@ void Renderer::DrawMap()
 
                     int32_t textureWidth,textureHeight;
                     SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
-                    int a=chunkNum*(Chunk::HORIZONTAL_SIZE);
+                    int chu=chunkNum*(Chunk::HORIZONTAL_SIZE);
                     SDL_Rect textureRect{0,0,textureWidth,textureHeight};
-                    SDL_Rect drawRect{(x+a)*GRID_SIZE,y*GRID_SIZE,GRID_SIZE,GRID_SIZE};
+                    SDL_Rect drawRect{(x+chu)*GRID_SIZE,(y-75)*GRID_SIZE,GRID_SIZE,GRID_SIZE};
 
                     SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
                 }

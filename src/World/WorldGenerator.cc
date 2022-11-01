@@ -4,7 +4,7 @@ WorldGenerator::WorldGenerator()
     
 }
 //TODO:random generation
-void WorldGenerator::GenerateChunk(Chunk &chunk)//const Chunk型で利用されるがこの関数の引数はconstに出来ない
+void WorldGenerator::GenerateChunk(Chunk &chunk)
 {
     for(int x=0;x<chunk.HORIZONTAL_SIZE;x++)
     {
@@ -15,6 +15,6 @@ void WorldGenerator::GenerateChunk(Chunk &chunk)//const Chunk型で利用され�
     }
     for(int x=0;x<chunk.HORIZONTAL_SIZE;x++)
     {
-        chunk.PlaceBlock(x,(chunk.VERTICAL_SIZE)/3,BlockData::BlockType::grass);
+        chunk.PlaceBlock(x,(chunk.VERTICAL_SIZE)/3,BlockData::BlockType::grass,"unko");
     }
 }
