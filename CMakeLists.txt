@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(googletest)
 file(GLOB_RECURSE TEST_LIST CONFIGURE_DEPENDS "test/*.cc")
 add_executable(kamige--googletest ${TEST_LIST})
 target_link_libraries(kamige--googletest gtest_main)
-target_include_directories(kamige--googletest PUBLIC "./src")
+target_include_directories(kamige--googletest PUBLIC "./src" third_party/SDL2-2.24.0/include third_party/SDL2_image-2.6.2/include)
 add_test(NAME test COMMAND kamige--googletest)
 enable_testing()
 

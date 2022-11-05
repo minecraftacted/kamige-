@@ -1,6 +1,6 @@
 #include "Game.hpp"
 int main()
 {
-    Game game("unko");
+    Game game;
     return 0;
 }

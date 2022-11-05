@@ -89,16 +89,16 @@ SDL_Texture *Renderer::LoadTexture(char *filePath, bool transparentBackground)
 
 void Renderer::DrawMap()
 {
-    World* world = World::GetInstance();
+    World*       world   = World::GetInstance();
+    SDL_Texture* texture = nullptr;
     for (int chunkNum = 0; chunkNum < world->NumOfChunks(); chunkNum++)
         {
-            for(int y = 0 ;y<world->GetChunk(chunkNum).VERTICAL_SIZE ; y++)
+            Chunk chunk=world->GetChunk(chunkNum);
+            for(int y = 0 ;y<chunk.VERTICAL_SIZE ; y++)
             {
-                for(int x = 0 ;x<world->GetChunk(chunkNum).HORIZONTAL_SIZE; x++)
+                for(int x = 0 ;x<chunk.HORIZONTAL_SIZE; x++)
                 {
-                    SDL_Texture*     texture = nullptr;
-                    const BlockData  block   = world->GetChunk(chunkNum).GetBlockData(x,y);
-
+                    const BlockData  block   = chunk.GetBlockData(x,y);
 
                     if(block.GetTexturePath()==nullptr)
                     {
@@ -108,9 +108,10 @@ void Renderer::DrawMap()
 
                     int32_t textureWidth,textureHeight;
                     SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
-                    int chu=chunkNum*(Chunk::HORIZONTAL_SIZE);
+
+                    int magOfCoordByChunk=chunkNum*(chunk.HORIZONTAL_SIZE);
                     SDL_Rect textureRect{0,0,textureWidth,textureHeight};
-                    SDL_Rect drawRect{(x+chu)*GRID_SIZE,(y-75)*GRID_SIZE,GRID_SIZE,GRID_SIZE};
+                    SDL_Rect drawRect{(x+magOfCoordByChunk)*GRID_SIZE,(y-75)*GRID_SIZE,GRID_SIZE,GRID_SIZE};
 
                     SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
                 }
