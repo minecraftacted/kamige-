@@ -51,28 +51,28 @@ struct BlockData
                     return nullptr;
 
                 case BlockType::grass:
-                    return "Images/grass.png";
+                    return "resources/images/grass.png";
 
                 case BlockType::dirt:
-                    return "Images/dirt.png";
+                    return "resources/images/dirt.png";
 
                 case BlockType::planks:
-                    return "Images/planks.png";
+                    return "resources/images/planks.png";
 
                 case BlockType::water:
-                    return "Images/water.png";
+                    return "resources/images/water.png";
 
                 case BlockType::wood:
-                    return "Images/wood.png";
+                    return "resources/images/wood.png";
 
                 case BlockType::leaves:
-                    return "Images/leaves.png";
+                    return "resources/images/leaves.png";
 
                 case BlockType::glass:
-                    return "Images/glass.png";
+                    return "resources/images/glass.png";
 
                 default:
-                    return "Images/unknown.png";
+                    return "resources/images/unknown.png";
             }
         }
         void SetTexturePath(const char* path) noexcept
