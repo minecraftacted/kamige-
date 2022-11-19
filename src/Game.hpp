@@ -5,8 +5,9 @@ class Game
 {
 public:
     Game():
-        world(25)
+        world(1)
     {
+        std::cout<<"Game constructor"<<std::endl;
         this->GameLoop();
     }
 

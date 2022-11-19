@@ -1,6 +1,7 @@
 ﻿#include "Chunk.hpp"
 Chunk::Chunk()
 {
+    std::cout<<"chunk constructor"<<std::endl;
     for(int i=0;i<HORIZONTAL_SIZE;i++)
     {
         for(int j=0;j<VERTICAL_SIZE;j++)

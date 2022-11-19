@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+#include <iostream>
 struct BlockData
 {
     enum class BlockClass
@@ -20,9 +22,9 @@ struct BlockData
         glass
     };
     private:
-        BlockClass blockClass;
         BlockType type;
-        char* texturePath;
+        BlockClass blockClass;
+        std::string texturePath;
     public:
         static BlockClass TypeToClass(BlockType type)
         {
@@ -39,11 +41,13 @@ struct BlockData
             return BlockClass::solid;
         }
         /*if air than return nullptr*/
-        static char* TypeToTexturePath(BlockType type)
+        static const char* TypeToTexturePath(BlockType type)
         {
+            std::cout<<"typetotexturepath"<<std::endl;
             switch(type)
             {
                 case BlockType::air:
+                    std::cout<<"air"<<std::endl;
                     return nullptr;
 
                 case BlockType::grass:
@@ -71,18 +75,19 @@ struct BlockData
                     return "Images/unknown.png";
             }
         }
-        void SetTexturePath(char* path) noexcept
+        void SetTexturePath(const char* path) noexcept
         {
             if(path==nullptr)
             {
                 texturePath=TypeToTexturePath(type);
+                std::cout<<"Set texture path"<<std::endl;
                 return;
             }
             texturePath=path;
         }
-        char* GetTexturePath() const noexcept
+        const char* GetTexturePath() const noexcept
         {
-            return texturePath;
+            return texturePath.c_str();
         }
         bool isTransparent() const noexcept
         {
@@ -100,5 +105,5 @@ struct BlockData
         }
         BlockData(BlockData::BlockType type=BlockType::air , char* texturePath=nullptr) noexcept:
             type(type),blockClass(TypeToClass(type))
-                {SetTexturePath(texturePath);}
+                {std::cout<<"blockData constructor"<<std::endl;SetTexturePath(texturePath);}
 };

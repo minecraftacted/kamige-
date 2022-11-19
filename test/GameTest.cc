@@ -1,8 +1,13 @@
-#include <iostream>
 #include "gtest/gtest.h"
-#include "Game.hpp"
-#define otowakka
-TEST(GameTest,aaa){
-
+namespace
+{
+    TEST(GameTest,aaa)
+    {
+        EXPECT_TRUE(true);
+    }
 }
-
+int main(int argc, char **argv)
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

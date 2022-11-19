@@ -9,8 +9,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 file(GLOB_RECURSE SOURCE_LIST CONFIGURE_DEPENDS "src/*.cc")
 add_executable(kamige- ${SOURCE_LIST})
-target_include_directories(kamige- PRIVATE third_party/SDL2-2.24.0/include PRIVATE third_party/SDL2_image-2.6.2/include)
-target_link_directories(kamige- PRIVATE third_party/SDL2-2.24.0/lib/x64 PRIVATE third_party/SDL2_image-2.6.2/lib/x64)
+target_include_directories(kamige- PRIVATE third_party/SDL2-2.24.2/i686-w64-mingw32/include/SDL2 PRIVATE third_party/SDL2_image-2.6.2/i686-w64-mingw32/include/SDL2)
+target_link_directories(kamige- PRIVATE third_party/SDL2-2.24.2/i686-w64-mingw32/lib PRIVATE third_party/SDL2_image-2.6.2/i686-w64-mingw32/lib)
 target_link_libraries(kamige- SDL2 SDL2main SDL2_image)
 
 
@@ -28,10 +28,10 @@ target_include_directories(kamige--googletest PUBLIC "./src" third_party/SDL2-2.
 add_test(NAME test COMMAND kamige--googletest)
 enable_testing()
 
-
 if(MSVC)
     message("This compiller is MSVC.")
     target_compile_options(kamige- PRIVATE /W4 /WX)
 else()
-    message(FATAL_ERROR "Compilers other than MSVC are not supported.")
+    message("This compiller is not MSVC ; Assume GCC and continue processing.")
+    target_compile_options(kamige- PRIVATE -Wall -Wextra -Werror)
 endif()

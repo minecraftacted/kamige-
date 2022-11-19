@@ -5,7 +5,8 @@ World::World(int initalXSize):
 {
     assert(instancePtr == nullptr);
     instancePtr=this;
-    for(int i=0;i<NumOfChunks();i++)
+    std::cout<<"world constructor"<< std::endl;
+    for(int32_t i=0;i<NumOfChunks();i++)
     {
         GenerateChunk(i);
     }
@@ -15,7 +16,7 @@ World::~World()
     instancePtr=nullptr;
 }
 
-size_t World::NumOfChunks()const noexcept
+int32_t World::NumOfChunks()const noexcept
 {
     return worldData.size();
 }
@@ -30,12 +31,12 @@ size_t World::NumOfBlocksInY()const noexcept
     return Chunk::VERTICAL_SIZE;
 }
 
-size_t World::WhichChunkTheCoordAreIn(int32_t xCoordinate)const noexcept
+int32_t World::WhichChunkTheCoordAreIn(int32_t xCoordinate)const noexcept
 {
     return xCoordinate/Chunk::HORIZONTAL_SIZE;
 }
 
-std::tuple<int,int> World::CvtCoordToThoseInChunks(int32_t x, int32_t y)const noexcept
+std::tuple<int32_t,int32_t> World::CvtCoordToThoseInChunks(int32_t x, int32_t y)const noexcept
 {
     const int leftmostBlockInTheChunk = WhichChunkTheCoordAreIn(x)*Chunk::HORIZONTAL_SIZE;
     return std::forward_as_tuple(x-leftmostBlockInTheChunk, y);

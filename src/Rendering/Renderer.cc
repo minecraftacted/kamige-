@@ -48,7 +48,7 @@ void Renderer::Destroy()
     std::cout << "destroy sdl" << std::endl;
 }
 
-SDL_Texture *Renderer::LoadTexture(char *filePath, bool transparentBackground)
+SDL_Texture *Renderer::LoadTexture(const char *filePath, bool transparentBackground)
 {
     auto iterator=textureCaches.find(filePath);
     if(iterator != textureCaches.end()){
@@ -92,29 +92,29 @@ void Renderer::DrawMap()
     World*       world   = World::GetInstance();
     SDL_Texture* texture = nullptr;
     for (int chunkNum = 0; chunkNum < world->NumOfChunks(); chunkNum++)
+    {
+        Chunk chunk=world->GetChunk(chunkNum);
+        for(int y = 0 ;y<chunk.VERTICAL_SIZE ; y++)
         {
-            Chunk chunk=world->GetChunk(chunkNum);
-            for(int y = 0 ;y<chunk.VERTICAL_SIZE ; y++)
+            for(int x = 0 ;x<chunk.HORIZONTAL_SIZE; x++)
             {
-                for(int x = 0 ;x<chunk.HORIZONTAL_SIZE; x++)
+                const BlockData  block   = chunk.GetBlockData(x,y);
+
+                if(block.GetTexturePath()==nullptr)
                 {
-                    const BlockData  block   = chunk.GetBlockData(x,y);
-
-                    if(block.GetTexturePath()==nullptr)
-                    {
-                        continue;
-                    }
-                    texture = LoadTexture(block.GetTexturePath() , block.isTransparent());
-
-                    int32_t textureWidth,textureHeight;
-                    SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
-
-                    int magOfCoordByChunk=chunkNum*(chunk.HORIZONTAL_SIZE);
-                    SDL_Rect textureRect{0,0,textureWidth,textureHeight};
-                    SDL_Rect drawRect{(x+magOfCoordByChunk)*GRID_SIZE,(y-75)*GRID_SIZE,GRID_SIZE,GRID_SIZE};
-
-                    SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
+                    continue;
                 }
+                texture = LoadTexture(block.GetTexturePath() , block.isTransparent());
+
+                int32_t textureWidth,textureHeight;
+                SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);
+
+                int magOfCoordByChunk=chunkNum*(chunk.HORIZONTAL_SIZE);
+                SDL_Rect textureRect{0,0,textureWidth,textureHeight};
+                SDL_Rect drawRect{(x+magOfCoordByChunk)*GRID_SIZE,(y-75)*GRID_SIZE,GRID_SIZE,GRID_SIZE};
+
+                SDL_RenderCopy(renderer,texture,&textureRect,&drawRect);
             }
         }
+    }
 }
