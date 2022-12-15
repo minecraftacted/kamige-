@@ -1,0 +1,67 @@
+[
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\Entities\\Entity.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\Entities\\Entity.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/Entities/Entity.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\Entities\\Player.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\Entities\\Player.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/Entities/Player.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\Game.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\Game.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/Game.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\Rendering\\Renderer.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\Rendering\\Renderer.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/Rendering/Renderer.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\World\\Chunk.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\World\\Chunk.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/World/Chunk.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\World\\World.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\World\\World.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/World/World.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\World\\WorldGenerator.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\World\\WorldGenerator.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/World/WorldGenerator.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige-.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wextra -Werror -g -O0 -std=c++14 -o CMakeFiles\\kamige-.dir\\src\\main.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\src\\main.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/src/main.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/kamige--googletest.dir/includes_CXX.rsp -O3 -DNDEBUG -std=c++14 -o CMakeFiles\\kamige--googletest.dir\\test\\GameTest.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\test\\GameTest.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/test/GameTest.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-build/googlemock",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/gmock.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14 -o CMakeFiles\\gmock.dir\\src\\gmock-all.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\build\\_deps\\googletest-src\\googlemock\\src\\gmock-all.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-src/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-build/googlemock",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/gmock_main.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14 -o CMakeFiles\\gmock_main.dir\\src\\gmock_main.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\build\\_deps\\googletest-src\\googlemock\\src\\gmock_main.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-src/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-build/googletest",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/gtest.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14 -o CMakeFiles\\gtest.dir\\src\\gtest-all.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\build\\_deps\\googletest-src\\googletest\\src\\gtest-all.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-src/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-build/googletest",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/gtest_main.dir/includes_CXX.rsp -O3 -DNDEBUG -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14 -o CMakeFiles\\gtest_main.dir\\src\\gtest_main.cc.obj -c C:\\Users\\t-913\\CPPP\\kamige-\\build\\_deps\\googletest-src\\googletest\\src\\gtest_main.cc",
+  "file": "C:/Users/t-913/CPPP/kamige-/build/_deps/googletest-src/googletest/src/gtest_main.cc"
+}
+]

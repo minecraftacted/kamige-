@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20221118-0131-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.24.1"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="TIGAnoPasokonn"
+	OSRelease=" Personal"
+	OSVersion=" (Build 22000)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="13"
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="52826"
+	TotalPhysicalMemory="15962"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2304"
+	>
+	<Testing>
+		<StartDateTime>Nov 18 10:32 [NON-UTF-8-BYTE-0x93][NON-UTF-8-BYTE-0x8C][NON-UTF-8-BYTE-0x8B][NON-UTF-8-BYTE-0x9E] ([NON-UTF-8-BYTE-0x95]W[NON-UTF-8-BYTE-0x8F][NON-UTF-8-BYTE-0x80][NON-UTF-8-BYTE-0x8E][NON-UTF-8-BYTE-0x9E])</StartDateTime>
+		<StartTestTime>1668735123</StartTestTime>
+		<TestList>
+			<Test>./test</Test>
+		</TestList>
+		<Test Status="notrun">
+			<Name>test</Name>
+			<Path>.</Path>
+			<FullName>./test</FullName>
+			<FullCommandLine></FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Unable to find executable</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value></Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value></Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>Unable to find executable: C:/Users/t-913/CPPP/kamige-/build/kamige--googletest.exe</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Nov 18 10:32 [NON-UTF-8-BYTE-0x93][NON-UTF-8-BYTE-0x8C][NON-UTF-8-BYTE-0x8B][NON-UTF-8-BYTE-0x9E] ([NON-UTF-8-BYTE-0x95]W[NON-UTF-8-BYTE-0x8F][NON-UTF-8-BYTE-0x80][NON-UTF-8-BYTE-0x8E][NON-UTF-8-BYTE-0x9E])</EndDateTime>
+		<EndTestTime>1668735123</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

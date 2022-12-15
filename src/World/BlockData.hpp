@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+using namespace std::literals::string_literals;
 struct BlockData
 {
     enum class BlockClass
@@ -24,7 +25,7 @@ struct BlockData
     private:
         BlockType type;
         BlockClass blockClass;
-        std::string texturePath;
+        std::string texturePath;//TODO: u32
     public:
         static BlockClass TypeToClass(BlockType type)
         {
@@ -41,53 +42,53 @@ struct BlockData
             return BlockClass::solid;
         }
         /*if air than return nullptr*/
-        static const char* TypeToTexturePath(BlockType type)
+        static std::string TypeToTexturePath(BlockType type)
         {
-            std::cout<<"typetotexturepath"<<std::endl;
             switch(type)
             {
                 case BlockType::air:
-                    std::cout<<"air"<<std::endl;
-                    return nullptr;
+                    return "air"s;
 
                 case BlockType::grass:
-                    return "resources/images/grass.png";
+                    return "resources/images/grass.png"s;
 
                 case BlockType::dirt:
-                    return "resources/images/dirt.png";
+                    return "resources/images/dirt.png"s;
 
                 case BlockType::planks:
-                    return "resources/images/planks.png";
+                    return "resources/images/planks.png"s;
 
                 case BlockType::water:
-                    return "resources/images/water.png";
+                    return "resources/images/water.png"s;
 
                 case BlockType::wood:
-                    return "resources/images/wood.png";
+                    return "resources/images/wood.png"s;
 
                 case BlockType::leaves:
-                    return "resources/images/leaves.png";
+                    return "resources/images/leaves.png"s;
 
                 case BlockType::glass:
-                    return "resources/images/glass.png";
+                    return "resources/images/glass.png"s;
 
                 default:
-                    return "resources/images/unknown.png";
+                    return "resources/images/unknown.png"s;
             }
         }
         void SetTexturePath(const char* path) noexcept
         {
+            std::cout<<"settexturepath saisyo"<<std::endl;
             if(path==nullptr)
             {
-                texturePath=TypeToTexturePath(type);
+                std::cout<<"koko"<<std::endl;
+                texturePath = TypeToTexturePath(type);
                 std::cout<<"Set texture path"<<std::endl;
                 return;
             }
             texturePath=path;
         }
-        const char* GetTexturePath() const noexcept
+        const std::string GetTexturePath() const noexcept
         {
-            return texturePath.c_str();
+            return texturePath;
         }
         bool isTransparent() const noexcept
         {

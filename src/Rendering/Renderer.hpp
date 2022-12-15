@@ -4,12 +4,13 @@
 #include <iostream>
 #include <map>
 #include <stdexcept>
+#include <string>
 
 #define SDL_MAIN_HANDLED
 #include "SDL.h"
 #include "SDL_image.h"
 
-using texture_path = const char*;
+using texture_path = std::string*;
 class Renderer
 {
 public:
@@ -27,5 +28,5 @@ private:
     void Init();
     void Destroy();
     void DrawMap();
-    SDL_Texture* LoadTexture(const char*,bool) noexcept(false);
+    SDL_Texture* LoadTexture(const std::string,bool) noexcept(false);
 };

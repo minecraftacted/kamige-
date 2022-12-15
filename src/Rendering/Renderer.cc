@@ -48,14 +48,14 @@ void Renderer::Destroy()
     std::cout << "destroy sdl" << std::endl;
 }
 
-SDL_Texture *Renderer::LoadTexture(const char *filePath, bool transparentBackground)
+SDL_Texture *Renderer::LoadTexture(const std::string filePath, bool transparentBackground)
 {
     auto iterator=textureCaches.find(filePath);
     if(iterator != textureCaches.end()){
         return iterator->second;
     }
 
-    SDL_Surface *image = IMG_Load(filePath);
+    SDL_Surface *image = IMG_Load(filePath.c_str());
     if (image==NULL)
     {
         image=IMG_Load("Images/unknown.png");
@@ -100,11 +100,11 @@ void Renderer::DrawMap()
             {
                 const BlockData  block   = chunk.GetBlockData(x,y);
 
-                if(block.GetTexturePath()==nullptr)
+                if(block.GetTexturePath()=="air"s)
                 {
                     continue;
                 }
-                texture = LoadTexture(block.GetTexturePath() , block.isTransparent());
+                texture = LoadTexture(block.GetTexturePath().c_str() , block.isTransparent());
 
                 int32_t textureWidth,textureHeight;
                 SDL_QueryTexture(texture,NULL,NULL,&textureWidth,&textureHeight);

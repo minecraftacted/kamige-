@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="(empty)"
+	tests="1"
+	failures="0"
+	disabled="0"
+	skipped="1"
+	hostname=""
+	time="0"
+	timestamp="2022-11-29T19:24:37"
+	>
+	<testcase name="test" classname="test" time="0" status="notrun">
+		<skipped message="Unable to find executable"/>
+		<system-out>Unable to find executable: C:/Users/t-913/CPPP/kamige-/build/kamige--googletest.exe</system-out>
+	</testcase>
+</testsuite>

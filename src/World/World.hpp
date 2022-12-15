@@ -12,7 +12,7 @@ class World
 {
     friend class WorldGenerator;
 public:
-    World(int initalXSize);
+    explicit World(int initalXSize);
     ~World();
     int32_t NumOfChunks()const noexcept;
     size_t NumOfBlocksInX()const noexcept;
